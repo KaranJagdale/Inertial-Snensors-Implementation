@@ -37,6 +37,7 @@ def pub():
   rospy.init_node('pubGPS',anonymous = True)
   pub = rospy.Publisher('GPSmessage',GPSmsg,queue_size = 10)
   msg = GPSmsg()
+	rate = rospy.Rate(0.5)
   while not rospy.is_shutdown():
 	  s = ser.read(26)
 	#for  i in s:
@@ -45,8 +46,9 @@ def pub():
 	  msg.E = bintodec(s1,21)
 	  msg.D = bintodec(s1,25)
 	  #print(s1)
+		pub.publish(msg)
 	  print(msg)
-
+		rate.sleep()
 
 if __name__ == '__main__':
     try:
