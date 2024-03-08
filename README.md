@@ -1,0 +1,2 @@
+This is the code that I wrote as a part of my B.Tech project to implement the RTK-GPS on Fire Bird 5 mobile robots. The goal was to interface the GPS and establish simple tasks such as making the robot move on a predetermined path such as square in this case. Here, GPSDataLoggingROS.py reads the serial message from the RTK-GPS and publishes over a ros node so
+ that the bot can use it. This messege is subscribed by DrawSquare.py which uses this messege to compute the commands for motor controller to move the bot in the shape of square.
